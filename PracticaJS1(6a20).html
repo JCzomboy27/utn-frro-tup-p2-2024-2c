@@ -1,9 +1,5 @@
 <!-- 
     
-    11. Escribe un programa que pida una frase y escriba cuántas de las letras que
-    tiene son vocales
-    12. Escribe un programa que pida una frase y escriba cuántas veces aparecen
-    cada una de las vocales
     13. Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o
     7 (sólo hay que comprobar si lo es por uno de los cuatro)
     14. Añadir al ejercicio anterior que nos diga por cual de los cuatro es divisible (hay
@@ -78,6 +74,44 @@
         }
         document.write("Las vocales encontradas son: " + vocales + "<br>");
         console.log("Las vocales encontradas son: " + vocales);
+        //11. Escribe un programa que pida una frase y escriba cuántas de las letras que tiene son vocales
+        var Frase3 = prompt("Ingrese una frase mas");
+        var repeticiones2 = Frase3.match(/[aeiouáéíóúAEIOUÁÉÍÓÚ]/gi);
+        var CantidadDeVocales = repeticiones2 ? repeticiones2.length : 0;
+        document.write("La cantidad de vocales es: " + CantidadDeVocales + "<br>");
+        console.log("La cantidad de vocales es: " + CantidadDeVocales);
+        //12. Escribe un programa que pida una frase y escriba cuántas veces aparecen cada una de las vocales
+        var Frase4 = prompt("Ingrese otra frase mas");
+        var VocalA = 0
+        var VocalE = 0
+        var VocalI = 0
+        var VocalO = 0
+        var VocalU = 0
+        for (let index = 0; index < Frase4.length; index++) {
+            var letra = Frase4[index];
+            if (letra === 'a' || letra === 'A') {
+                VocalA += 1;
+            } else if (letra === 'e' || letra === 'E') {
+                VocalE += 1;
+            } else if (letra === 'i' || letra === 'I') {
+                VocalI += 1;
+            } else if (letra === 'o' || letra === 'O') {
+                VocalO += 1;
+            } else if (letra === 'u' || letra === 'U') {
+                VocalU += 1;
+            }
+        }
+        document.write("La frase empleada fue:" + Frase4 + "<br>");
+        document.write("La vocal A se repite: " + VocalA + "<br>");
+        document.write("La vocal E se repite: " + VocalE + "<br>");
+        document.write("La vocal I se repite: " + VocalI + "<br>");
+        document.write("La vocal O se repite: " + VocalO + "<br>");
+        document.write("La vocal U se repite: " + VocalU + "<br>");
+        console.log("La vocal A se repite: " + VocalA);
+        console.log("La vocal E se repite: " + VocalE);
+        console.log("La vocal I se repite: " + VocalI);
+        console.log("La vocal O se repite: " + VocalO);
+        console.log("La vocal U se repite: " + VocalU);
     </script>
 </head>
 
