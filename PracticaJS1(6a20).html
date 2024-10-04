@@ -1,24 +1,3 @@
-<!-- 
-    
-    13. Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o
-    7 (sólo hay que comprobar si lo es por uno de los cuatro)
-    14. Añadir al ejercicio anterior que nos diga por cual de los cuatro es divisible (hay
-    que decir todos por los que es divisible)
-    15. Escribir un programa que escriba en pantalla los divisores de un número dado
-    16. Escribir un programa que escriba en pantalla los divisores comunes de dos
-    números dados
-    17. Escribir un programa que nos diga si un número dado es primo (no es divisible
-    por ninguno otro número que no sea él mismo o la unidad)
-    18. Pide la edad y si es mayor de 18 años indica que ya puede conducir
-    19. Pide una nota (número). Muestra la calificación según la nota:
-    ● 0-3: Muy deficiente
-    ● 3-5: Insuficiente
-    ● 5-6: Suficiente
-    ● 6-7: Bien
-    ● 7-9: Notable
-    ● 9-10: Sobresaliente
-    20. Realiza un script que pida cadenas de texto hasta que se pulse “cancelar”. Al
-    salir con “cancelar” deben mostrarse todas las cadenas concatenadas con un guión -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -112,6 +91,144 @@
         console.log("La vocal I se repite: " + VocalI);
         console.log("La vocal O se repite: " + VocalO);
         console.log("La vocal U se repite: " + VocalU);
+        //13. Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o 7 (sólo hay que comprobar si lo es por uno de los cuatro)
+        //14. Añadir al ejercicio anterior que nos diga por cual de los cuatro es divisible (hay que decir todos por los que es divisible)
+        var numero = parseFloat(prompt("Ingrese otro numero"));
+        var DivisiblePor = "";
+        if (numero % 2 === 0) {
+            DivisiblePor += "El numero es divisible por 2" + "<br>";
+        }
+        if (numero % 3 === 0) {
+            DivisiblePor += "El numero es divisible por 3" + "<br>";
+        }
+        if (numero % 5 === 0) {
+            DivisiblePor += "El numero es divisible por 5" + "<br>";
+        }
+        if (numero % 7 === 0) {
+            DivisiblePor += "El numero es divisible por 7" + "<br>";
+        }
+        if (numero % 2 !== 0 && numero % 3 !== 0 && numero % 5 !== 0 && numero % 7 !== 0) {
+            DivisiblePor += "El numero no es divisible por 2,3,5 o 7";
+        }
+        document.write(DivisiblePor);
+        console.log(DivisiblePor);
+        //15. Escribir un programa que escriba en pantalla los divisores de un número dado
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        var divisores = [];
+        for (let index = 0; index < numeroAleatorio; index++) {
+            if (numeroAleatorio % index === 0) {
+                divisores.push(index);
+            }
+        }
+        document.write("El numero dado fue: " + numeroAleatorio + "<br>");
+        document.write('Y sus divisores son:' + divisores.join() + "<br>")
+        console.log("Los divisores de " + numeroAleatorio + " son: " + divisores.join(", "))
+            //16. Escribir un programa que escriba en pantalla los divisores comunes de dos números dados
+        var Divisor1 = Math.floor(Math.random() * 100) + 1;
+        var Divisor2 = Math.floor(Math.random() * 100) + 1;
+        var Divisores1 = [];
+        var Divisores2 = [];
+        var longitud = 0;
+        for (let index = 1; index < Divisor1; index++) {
+            if (Divisor1 % index === 0) {
+                Divisores1.push(index);
+            }
+        }
+        for (let index = 1; index < Divisor2; index++) {
+            if (Divisor2 % index === 0) {
+                Divisores2.push(index);
+            }
+        }
+        var comunes = [];
+        for (let index = 0; index < Divisores1.length; index++) {
+            if (Divisores2.includes(Divisores1[index])) {
+                comunes.push(Divisores1[index]);
+            }
+        }
+        document.write("Los numeros dados son: " + Divisor1 + "," + Divisor2 + "<br>");
+        document.write("Los divisores comunes son: " + comunes + "<br>");
+        console.log("Los divisores comunes son: " + comunes);
+        //17. Escribir un programa que nos diga si un número dado es primo (no es divisible por ninguno otro número que no sea él mismo o la unidad)
+        var nAleatorio = Math.floor(Math.random() * 100) + 1
+        var primo = true;
+        if (nAleatorio <= 1) {
+            primo = false;
+        } else {
+            for (var index = 2; index < nAleatorio; index++) {
+                if (nAleatorio % index === 0) {
+                    primo = false;
+                    break;
+                }
+            }
+        }
+        if (primo) {
+            document.write("el numero: " + nAleatorio + " es primo.<br>");
+        } else {
+            document.write("el numero: " + nAleatorio + " no es primo.<br>");
+        }
+        //18. Pide la edad y si es mayor de 18 años indica que ya puede conducir
+        var edad = parseInt(prompt("Ingrese edad"));
+        document.write(edad > 18 ? "Puede conducir" : "No puede conducir");
+        /*19. Pide una nota(número).Muestra la calificación según la nota:
+         ●0 - 3: Muy deficiente
+         ● 3 - 5: Insuficiente
+         ● 5 - 6: Suficiente
+         ● 6 - 7: Bien
+         ● 7 - 9: Notable+
+         ● 9 - 10: Sobresaliente*/
+        var nota = parseFloat(prompt("Ingrese nota"));
+        switch (true) {
+            case (nota >= 0 && nota < 3):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Muy deficiente" + "<br>")
+                break;
+            case (nota === 3):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Muy deficiente" + "<br>")
+                break;
+            case (nota > 3 && nota < 5):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Insuficiente" + "<br>")
+                break;
+            case (nota === 5):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Insuficiente" + "<br>")
+                break;
+            case (nota > 5 && nota < 6):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Suficinte" + "<br>")
+                break;
+            case (nota === 6):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Suficiente" + "<br>")
+                break;
+            case (nota > 6 && nota < 7):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Bien" + "<br>")
+                break;
+            case (nota === 7):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Bien" + "<br>")
+                break;
+            case (nota > 7 && nota < 9):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Notable" + "<br>")
+                break;
+            case (nota === 9):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Sobresaliente" + "<br>")
+                break;
+            case (nota > 9 && nota < 10):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Sobresaliente" + "<br>")
+                break;
+            case (nota === 10):
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Sobresaliente" + "<br>")
+                break;
+            default:
+                document.write("La nota es: " + nota + "<br>" + " Su calificacion es: Nota invalida" + "<br>")
+                break;
+        }
+        //20. Realiza un script que pida cadenas de texto hasta que se pulse “cancelar”. Al salir con “cancelar” deben mostrarse todas las cadenas concatenadas con un guión
+        var cadenas = [];
+        var entrada;
+        while (true) {
+            entrada = prompt("Ingrese una cadena de texto (o pulse cancelar para salir)");
+            if (entrada === null) {
+                break;
+            }
+            cadenas.push(entrada)
+        }
+        document.write("Cadenas concatenadas: " + cadenas.join(" "));
     </script>
 </head>
 
